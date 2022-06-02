@@ -1,0 +1,269 @@
+{
+	"info": {
+		"_postman_id": "76c53df0-b039-4551-b466-80c1e43fde4f",
+		"name": "Address-Book",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17584405"
+	},
+	"item": [
+		{
+			"name": "Add single contact",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Krishna\",\r\n    \"email\": \"chandra.rupam@gmail.com\",\r\n    \"phone\": \"0000000000\",\r\n    \"address\":\"Kolkata\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/new",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"new"
+					]
+				},
+				"description": "Add new single contact "
+			},
+			"response": []
+		},
+		{
+			"name": "Add contacts in bulk",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"name\": \"Rahul\",\r\n        \"email\": \"rahul@gmail.com\",\r\n        \"phone\": \"1111111111\",\r\n        \"address\": \"Haldia\" \r\n    },\r\n    {\r\n        \"name\": \"Ratul\",\r\n        \"email\": \"ratul@gmail.com\",\r\n        \"phone\": \"2222222222\",\r\n        \"address\": \"Haldia\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/addBulk",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"addBulk"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get single contact by name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/getSingleContact?name=Mitrajit",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"getSingleContact"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Mitrajit"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Gel all contact with pagination",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/getAll?page=2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"getAll"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get contacts by matching phrase",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/getContacts?phrase=Mitra",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"getContacts"
+					],
+					"query": [
+						{
+							"key": "phrase",
+							"value": "Mitra"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update contact by _id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"address\": \"Kolkata\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/update?id=6297f1b4521f8a57577c06a6",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"update"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "6297f1b4521f8a57577c06a6"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete contact",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/delete?id=6298a8e658533729cdf5d7ab",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"delete"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "6298a8e658533729cdf5d7ab"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register new user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"Mitrajit\",\r\n    \"lastName\": \"Chandra\",\r\n    \"email\": \"chandra.rupam@gmail.com\",\r\n    \"password\": \"SuperSecretPassword\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/register",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login using email and password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"chandra.rupam@gmail.com\",\r\n    \"password\":\"SuperSecretPassword\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjI5OGNkYjVlOTViZDYzZjc2NDNlNDBmIiwiZW1haWwiOiJjaGFuZHJhLnJ1cGFtQGdtYWlsLmNvbSIsImlhdCI6MTY1NDE4MTU1OCwiZXhwIjoxNjU0MTg4NzU4fQ.r58QUs_L623S1nvXHOqO5Z0UURn3HU23UFLqoEGWrxA",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
